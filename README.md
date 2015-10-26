@@ -1,2 +1,11 @@
-# monit2influxdb
-Collects metrics from Monit and sends to InfluxDB 
+# Monit to InfluxDB collector
+
+
+
+qmake 
+make 
+./test
+
+
+
+
