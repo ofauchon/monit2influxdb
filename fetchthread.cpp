@@ -55,7 +55,7 @@ void FetchThread::process(QString phost)
             QRegularExpressionMatch match = i.next();
             QString s_metric = match.captured(1);
             QString s_value = match.captured(3);
-            QString s_mtr = probe + "_" + s_metric + ",host=" + phost+ " value=" + s_value + " " + QString::number(1000000* QDateTime::currentMSecsSinceEpoch());
+            QString s_mtr = "monit2influxdb,metric="+probe + "_" + s_metric + ",host=" + phost+ " value=" + s_value + " " + QString::number(1000000* QDateTime::currentMSecsSinceEpoch());
             qDebug() << "metric:  " << s_mtr.toLower();
 
             udpSocket->writeDatagram(s_mtr.toStdString().c_str(), QHostAddress::LocalHost, 9999);
